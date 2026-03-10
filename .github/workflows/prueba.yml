@@ -1,4 +1,4 @@
-name: Hola mundo Workflow
+name: Hola mundo workflow
 
 on:
   push:
@@ -7,12 +7,15 @@ on:
 
 jobs:
   build:
-    runs-on: ununtu-latest
-    steps:
-    - name: Paso Hola Mundo
-      run: echo "Hola desde Github Action"
+    runs-on: ubuntu-latest
 
-    - name: Debug
-      run: |
-        echo "Debuggin: GITHUB_REF: ${{github.ref}}"
-        echo "Debuggin: RUNNER_OS: ${{runner.os}}"
+    steps:
+      - name: Paso Hola Mundo
+        run: echo "Te invito a mi primer culiacanazo en GitHub Actions"
+      - name: Debug
+        run: |
+          echo "Debugging information GITHUB_REF:${{github.ref}}"
+          echo "Debugging information GITHUB_SHA:${{github.sha}}"
+          echo "Debugging information RUNNER_OS:${{runner.os}}"
+          echo "Debugging information GITHUB_REPOSITORY:${{github.repository}}"
+          echo "Debugging information GITHUB_ACTOR:${{github.actor}}"
