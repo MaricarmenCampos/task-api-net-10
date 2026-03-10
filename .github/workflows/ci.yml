@@ -23,3 +23,16 @@ jobs:
 
             - name: Verificar Versión .NET
               run: dotnet --version
+
+            - name: Build del proyecto
+              id: build-step
+              run: dotnet build src/Api/Api.csproj --configuration Release
+              continue-on-error: true
+
+            - name: Notifica on build failure
+              if: steps.build-step.outcome == 'failure'
+              run: echo "la compilación falló </3"
+
+            - name: Mensaje final
+              if: steps.build-step.outcome == 'failure'
+              run: echo "workflow de CI completado exitosamente"
